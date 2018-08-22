@@ -1,3 +1,5 @@
+enablePlugins(PackPlugin)
+
 resolvers += "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/"
 
 name := "query_compiler"
@@ -7,7 +9,9 @@ scalaVersion := "2.11.7"
 
 publishTo := Some(Resolver.file("file",  new File( "exec" )) )
 
-packAutoSettings
+// packAutoSettings
+import xerial.sbt.pack.PackPlugin._
+publishPackArchives
 
 libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-compiler" % "2.11.2",
